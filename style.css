@@ -4,43 +4,29 @@
   box-sizing: border-box;
 }
 
-body {
-  /*
-  background-image: url(./assets/bg-mobile.jpg);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-
-  SHORTHAND:
-
-  /*background: color image repeat posistion/size*/
-
-  background: url(assets/bg-mobile.jpg) no-repeat top center/cover;
-  height: 100vh;
-}
-
 :root {
   --text-color: white;
-  --bg-url: url(assets/bg-mobile.jpg);
+  --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(255, 255, 255, 0.2);
-  --switch-bg-url: url(assets/moon-stars.svg);
+  --switch-bg-url: url(./assets/moon-stars.svg);
 }
 
 .light {
   --text-color: black;
-  --bg-url: url(assets/bg-mobile-light.jpg);
+  --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
-  --surface-color: rgba (0, 0, 0, 0.05);
+  --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(0, 0, 0, 0.1);
-  --switch-bg-url: url(assets/sun.svg);
+  --switch-bg-url: url(./assets/sun.svg);
 }
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -55,6 +41,7 @@ body * {
   padding: 0 24px;
 }
 
+/* profile */
 #profile {
   text-align: center;
   padding: 24px;
@@ -66,17 +53,16 @@ body * {
 
 #profile p {
   font-weight: 500;
-  font-size: 24px;
+  line-height: 24px;
   margin-top: 8px;
 }
 
-/*switch */
+/* switch */
+#switch {
+  position: relative;
+  width: 64px;
 
-#switch{
-    position: relative;
-    width: 64px;
-
-    margin: 4px auto;
+  margin: 4px auto;
 }
 
 #switch button {
@@ -93,11 +79,11 @@ body * {
   transform: translateY(-50%);
 
   animation: slide-back 0.2s;
-  }
+}
 
 .light #switch button {
   animation: slide-in 0.2s forwards;
-}  
+}
 
 #switch button:hover {
   outline: 8px solid var(--highlight-color);
@@ -107,16 +93,14 @@ body * {
   display: block;
   width: 64px;
   height: 24px;
-  background: var(--surface-solor);
+  background: var(--surface-color);
   border: 1px solid var(--stroke-color);
-  /*backdrop-filter: blur(4px);*/
+  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
-  
 }
 
 /* links */
-
 ul {
   list-style: none;
 
@@ -134,8 +118,8 @@ ul li a {
 
   padding: 16px 24px;
 
-  border: 1px solid var(--stroke-color);
   background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
   border-radius: 8px;
 
   backdrop-filter: blur(4px);
@@ -147,15 +131,19 @@ ul li a {
   transition: background 0.2s;
 }
 
+/* pseudo-selector */
 ul li a:hover {
-  border: 1.5px solid var(--text-color);
   background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
 }
 
+/* social links */
 #social-links {
   display: flex;
   justify-content: center;
+
   padding: 24px 0;
+
   font-size: 24px;
 }
 
@@ -179,35 +167,32 @@ footer {
   font-size: 14px;
 }
 
-@media (min-widht: 700px ) {
-  :root{
-    --bg-url: url(assets/bg-desktop.jpg);
+/* media queries */
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
   }
 
   .light {
-    --bg-url: url(assets/bg-desktop-light.jpg);
+    --bg-url: url(./assets/bg-desktop-light.jpg);
   }
 }
 
-/*animation */
+/* animation */
 @keyframes slide-in {
   from {
     left: 0;
   }
-
   to {
     left: 50%;
   }
-
 }
 
 @keyframes slide-back {
   from {
     left: 50%;
   }
-
   to {
     left: 0;
   }
-
 }
